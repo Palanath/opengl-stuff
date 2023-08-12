@@ -26,3 +26,8 @@ Repository containing small, shared OpenGL projects each used to explore feature
 7. You should be able to run the project. You may need to click on the project in the Project Explorer to select it (select the project itself, not the C++ source file) before the run button actually tries to run it. You can hover over the run button at the top of Eclipse to see what project/file it will try running when you click on it.
 
    ![image](https://github.com/Palanath/opengl-stuff/assets/117754232/1a71a366-2d79-45a0-969a-0b5afd0317a2)
+
+## Creating Projects
+To create a project, simply make the C/C++ project within the repository root, then add the project files to the repository through a git commit. The repository's `.gitignore` is set up to ignore the `.settings/language.settings.xml` file and any `.prefs` files contained within the `.settings` folder of any Eclipse project at the root of the repository, since these often contain platform/environment-specific information that is not necessary to build the project or import and execute it.
+
+The `.project` and `.cproject` files *are* included in the repository. These contain information about dependency/reference configuration and how to build the project.
