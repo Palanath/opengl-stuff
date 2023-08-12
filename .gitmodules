@@ -1,0 +1,3 @@
+[submodule "Libraries/opengl-utils"]
+	path = Libraries/opengl-utils
+	url = https://github.com/Palanath/opengl-utils
