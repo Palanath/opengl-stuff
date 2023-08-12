@@ -3,6 +3,7 @@
 	<name>Instanced Rendering</name>
 	<comment></comment>
 	<projects>
+		<project>opengl-utils</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
