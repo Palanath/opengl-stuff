@@ -38,9 +38,10 @@ To create a project, simply make the C/C++ project within the repository root, t
 6. In the top right box, labeled `Libraries (-l)`, click on the page icon with a green plus on it: ![image](https://github.com/Palanath/opengl-stuff/assets/117754232/a1a3dbb3-863e-434d-9d0a-f3ff7320e1a0)
 7. Fill `glfw3` into the text box then hit enter.
    
-   ![image](https://github.com/Palanath/opengl-stuff/assets/117754232/72cee6f9-feea-4b2a-98ad-1b65565737cb)
+   ![image](https://github.com/Palanath/opengl-stuff/assets/117754232/d9272b3d-cebb-47aa-9c2f-c28fde58d0b7)
+
    
-   You'll now see `glfw32` at the top of the library list.
+   You'll now see `glfw3` at the top of the library list.
 8. Add the following libraries as well, **in the same order**:
    1. `glew32`
    2. `opengl32`
