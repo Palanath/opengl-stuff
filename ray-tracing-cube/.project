@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>ray-tracing-cube</name>
+	<name>Ray Tracing Cube</name>
 	<comment></comment>
 	<projects>
 		<project>opengl-utils</project>
