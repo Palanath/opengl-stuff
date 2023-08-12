@@ -28,6 +28,36 @@ Repository containing small, shared OpenGL projects each used to explore feature
    ![image](https://github.com/Palanath/opengl-stuff/assets/117754232/1a71a366-2d79-45a0-969a-0b5afd0317a2)
 
 ## Creating Projects
-To create a project, simply make the C/C++ project within the repository root, then add the project files to the repository through a git commit. The repository's `.gitignore` is set up to ignore the `.settings/language.settings.xml` file and any `.prefs` files contained within the `.settings` folder of any Eclipse project at the root of the repository, since these often contain platform/environment-specific information that is not necessary to build the project or import and execute it.
+To create a project, simply make the C/C++ project within the repository root, then add the project files to the repository through a git commit. Add the appropriate OpenGL libraries and reference the `opengl-utils` project if needed.
+### Adding OpenGL Libraries
+1. After creating the project, right click it in Project Explorer and go to `Properties` (at the bottom of the context menu).
+2. On the left, find and expand `C/C++ Build` then click `Settings`.
+3. In the settings menu, make sure you're on the `Tool Settings` tab.
+4. Expand the `MinGW C++ Linker` section.
+5. Click `Libraries`.
+6. In the top right box, labeled `Libraries (-l)`, click on the page icon with a green plus on it: ![image](https://github.com/Palanath/opengl-stuff/assets/117754232/a1a3dbb3-863e-434d-9d0a-f3ff7320e1a0)
+7. Fill `glfw3` into the text box then hit enter.
+   
+   ![image](https://github.com/Palanath/opengl-stuff/assets/117754232/72cee6f9-feea-4b2a-98ad-1b65565737cb)
+   
+   You'll now see `glfw32` at the top of the library list.
+8. Add the following libraries as well, **in the same order**:
+   1. `glew32`
+   2. `opengl32`
+   3. `glu32`
+   4. `gdi32`
+
+   You can reorder the libraries using the arrow buttons to the right of the page icon with the green plus.
+9. Hit `Apply` or `Apply and Close`.
+
+### Adding `opengl-utils` Library
+1. Right click the project in Project Explorer and go to `Properties`, like when adding OpenGL Libraries.
+2. On the left, find and expand `C/C++ General`, (NOT `C/C++ Build`), then click `Paths and Symbols`.
+3. Click the `References` tab. It is the very rightmost tab.
+4. Click the checkbox for the `opengl-utils` project.
+5. Hit `Apply` or `Apply and Close`.
+
+### Details
+The repository's `.gitignore` is set up to ignore the `.settings/language.settings.xml` file and any `.prefs` files contained within the `.settings` folder of any Eclipse project at the root of the repository, since these often contain platform/environment-specific information that is not necessary to build the project or import and execute it.
 
 The `.project` and `.cproject` files *are* included in the repository. These contain information about dependency/reference configuration and how to build the project.
