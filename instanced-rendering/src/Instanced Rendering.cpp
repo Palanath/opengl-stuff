@@ -36,32 +36,42 @@ int main() {
 	/*
 	 * Shader
 	 */
-	auto prog =
-			createShaderProgram(
-					R"(#version 330 core
+	auto prog;
+	{
+		auto strval = std::to_string(instances);
+		prog =
+				createShaderProgram(
+						(std::string(
+								R"(#version 330 core
 in vec2 pos;
 
 flat out int instid;
 out vec2 position;
 
 uniform int numInstances;
-uniform vec2 instanceShifts[256];
+uniform vec2 instanceShifts[)")
+								+ strval
+								+ R"(];
 
 void main() {
 	gl_Position = vec4(position = pos + instanceShifts[gl_InstanceID], 0, 1);
 	instid = gl_InstanceID;
-})",
-					R"(#version 330 core
+})").c_str(),
+						(std::string(
+								R"(#version 330 core
 in vec2 position;
 flat in int instid;
 uniform int numInstances;
-uniform vec2 instanceShifts[256];
+uniform vec2 instanceShifts[)")
+								+ strval
+								+ R"(];
 
 out vec4 color;
 
 void main() {
 	color = vec4(1, 1, 0, 1);
-})");
+})").c_str());
+	}
 	glUseProgram(prog);
 
 	glUniform1i(glGetUniformLocation(prog, "numInstances"), instances);
