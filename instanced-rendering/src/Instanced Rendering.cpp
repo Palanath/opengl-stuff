@@ -8,24 +8,34 @@ int main() {
 	squareViewport(win);
 	glfwSetWindowSizeCallback(win, squareViewportGLFWCallback);
 
-	const int instances = 3;
-
-	float instShifts[] = {
-			// Shifts
-			.2, -.4,
-			-.3, .7,
-			.06, .1
-	};
-
+	/*
+	 * Model
+	 */
 	pala::opengl::tests::multiple_vaos::Model triangle;
 	float triangleData[] = {
-	// Triangle
+	// Triangle Vertices
 			-.5, .5,	// Top
 			.5, -.5,	// Right
 			-.5, -.5 	// Left
 			};
 	triangle.specifyAttribute(0,
 			triangle.addData(triangleData, sizeof triangleData), 2, 2, 0);
+
+	/*
+	 * Instancing Configuration
+	 */
+	const int instances = 3;
+	// Specify a set of "shifts" for each of the triangle instances.
+	float instShifts[] = {
+	// Shifts
+			.2, -.4,	// Triangle 1
+			-.3, .7,	// 2
+			.06, .1		// 3
+			};
+
+	/*
+	 * Shader
+	 */
 	auto prog =
 			createShaderProgram(
 					R"(#version 330 core
@@ -55,7 +65,8 @@ void main() {
 	glUseProgram(prog);
 
 	glUniform1i(glGetUniformLocation(prog, "numInstances"), instances);
-	auto instanceShiftsUniformLoc = glGetUniformLocation(prog, "instanceShifts");
+	auto instanceShiftsUniformLoc = glGetUniformLocation(prog,
+			"instanceShifts");
 
 	while (!glfwWindowShouldClose(win)) {
 		glfwPollEvents();
