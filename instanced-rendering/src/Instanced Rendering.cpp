@@ -24,7 +24,6 @@ int main() {
 	/*
 	 * Instancing Configuration
 	 */
-	const int instances = 3;
 	// Specify a set of "shifts" for each of the triangle instances.
 	float instShifts[] = {
 	// Shifts
@@ -32,6 +31,10 @@ int main() {
 			-.3, .7,	// 2
 			.06, .1		// 3
 			};
+
+	const int instances = sizeof instShifts / sizeof(float) / 2;
+	std::cout << "There are " << instances << " triangles being rendered."
+			<< std::endl;
 
 	/*
 	 * Shader
