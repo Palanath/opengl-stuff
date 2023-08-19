@@ -75,6 +75,8 @@ in vec3 col;
 
 out vec3 color;
 
+uniform float xShift;
+
 void main() {
 	color = col;
 	gl_Position = vec4(pos, 1);
@@ -87,6 +89,8 @@ void main() {
 	outcol = color;
 })");
 	glUseProgram(prog);
+
+
 
 	while (!glfwWindowShouldClose(win)) {
 		glfwPollEvents();
